@@ -12,6 +12,7 @@ public class GamePanel extends JPanel {
 
     public GamePanel(Board board) {
         this.board = board;
+
     }
 
     @Override
@@ -21,34 +22,23 @@ public class GamePanel extends JPanel {
 
     }
 
-    private void paintBoard(Board board, Graphics g){
+    public void paintBoard(Board board, Graphics g) {
         Cell[][] cells = board.getCells();
 
-        for(int x = 0; x < cells.length; x++){
-            for(int y = 0; y < cells.length; y++){
-                if(cells[x][y].isAlive()){
-                    paintLivingCell(g, cells[x][y]);
-                }else {
-                    paintDeadCell(g, cells[x][y]);
-                }
-
+        for (int x = 0; x < cells.length; x++) {
+            for (int y = 0; y < cells.length; y++) {
+                paintCell(g, cells[x][y]);
             }
         }
 
     }
 
-
-    private void paintLivingCell(Graphics g, Cell cell){
-
-        g.setColor(Color.black);
+    public void paintCell(Graphics g, Cell cell) {
+        Color color = cell.isAlive() ? Color.black : Color.white;
+        g.setColor(color);
         g.fillRect(cell.getX(), cell.getY(), cell.getWidth(), cell.getHeight());
     }
 
-    private void paintDeadCell(Graphics g, Cell cell){
-
-        g.setColor(Color.white);
-        g.fillRect(cell.getX(), cell.getY(), cell.getWidth(), cell.getHeight());
-    }
 
     public Board getBoard() {
         return board;

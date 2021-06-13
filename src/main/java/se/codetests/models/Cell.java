@@ -38,19 +38,13 @@ public class Cell {
         this.height = height;
     }
 
-    public int getX(){
-        if(this.x == 0){
-            return 0;
-        }else {
-            return this.x * this.width;
-        }
+    public int getX() {
+        return this.x * this.width;
+
     }
 
-    public int getY(){
-        if(this.y == 0){
-            return 0;
-        }else {
-            return this.y * this.height;
-        }
+    public int getY() {
+        return this.y * this.height;
+
     }
 }

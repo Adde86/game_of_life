@@ -4,7 +4,7 @@ public class GameConfig {
 
     private int boardSize;
     private int cellSize;
-    private long ticTime = 1000;
+    private long ticTime;
 
     public GameConfig(int boardSize, int cellSize, long ticTime) {
         this.boardSize = boardSize;
